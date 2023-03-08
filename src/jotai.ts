@@ -1,14 +1,14 @@
 import { useSyncExternalStore } from "react";
 
 interface Atom<AtomType> {
-    get: () => AtomType;
-    set: (newValue: AtomType) => void;
-    subscribe: (callback: (newValue: AtomType) => void) => () => void;
-    _subscribers: () => number;
+  get: () => AtomType;
+  set: (newValue: AtomType) => void;
+  subscribe: (callback: (newValue: AtomType) => void) => () => void;
+  _subscribers: () => number;
 }
 
 type AtomGetter<AtomType> = (
-    get: <Target>(a: Atom<Target>) => Target
+  get: <Target>(a: Atom<Target>) => Target
 ) => AtomType;
 
 export function atom<AtomType>(
