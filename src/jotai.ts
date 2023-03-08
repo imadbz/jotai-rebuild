@@ -12,7 +12,7 @@ type AtomGetter<AtomType> = (
 ) => AtomType;
 
 export function atom<AtomType>(
-    initialValue: AtomType | AtomGetter<AtomType>
+  initialValue: AtomType | AtomGetter<AtomType>
 ): Atom<AtomType> {
     let value: AtomType = initialValue as AtomType
 
@@ -51,9 +51,9 @@ export function atom<AtomType>(
 }
 
 export function useAtom<AtomType>(atom: Atom<AtomType>) {
-    return [useSyncExternalStore(atom.subscribe, atom.get), atom.set];
+  return [useSyncExternalStore(atom.subscribe, atom.get), atom.set];
 }
 
 export function useAtomValue<AtomType>(atom: Atom<AtomType>) {
-    return useSyncExternalStore(atom.subscribe, atom.get);
+  return useSyncExternalStore(atom.subscribe, atom.get);
 }
